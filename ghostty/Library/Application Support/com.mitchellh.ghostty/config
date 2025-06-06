@@ -51,11 +51,11 @@ font-size = 14
 
 # Theme
 # Replace with your actual theme file/path or built-in theme name
-theme = "UltraDark"
+theme = "Arthur"
 
 # Transparency (0.0 = fully transparent, 1.0 = fully opaque)
 # 22% transparent is 78% opaque.
-background-opacity = 0.78
+background-opacity = 0.80
 
 # Top Bar
 macos-titlebar-style = "tabs"
