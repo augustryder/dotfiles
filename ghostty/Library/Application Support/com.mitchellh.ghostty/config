@@ -55,7 +55,7 @@ theme = "Arthur"
 
 # Transparency (0.0 = fully transparent, 1.0 = fully opaque)
 # 22% transparent is 78% opaque.
-background-opacity = 0.80
+background-opacity = 0.84
 
 # Top Bar
 macos-titlebar-style = "tabs"

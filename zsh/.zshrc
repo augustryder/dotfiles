@@ -10,12 +10,15 @@ source <(fzf --zsh)
 # Command to open the GitHub repository in the default web browser
 opengh() {
     local url
-    url=$(git config --get remote.origin.url | sed 's/git@github.com/https:\/\/github.com\//' | sed 's/\.git//')
-    if [ -n "$url" ]; then
-        open "$url"
-    else
-        echo "No remote repository found."
+    url=$(git config --get remote.origin.url)
+    if [ -z "$url" ]; then
+        echo "Error: No remote 'origin' repository found."
+        return 1
     fi
+    local web_url
+    web_url=$(echo "$url" | sed -e 's|git@github.com:|https://github.com/|' -e 's|\.git$||')
+    echo "Opening $web_url ..."
+    open "$web_url"
 }
 
 alias ls=lsd
