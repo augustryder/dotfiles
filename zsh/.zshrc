@@ -21,6 +21,14 @@ opengh() {
     open "$web_url"
 }
 
+tree() {
+    if [ -z "$1" ]; then
+        lsd --tree --depth 2
+        return
+    fi
+    lsd --tree --depth "$1"
+}
+
 alias ls=lsd
 
 fastfetch
