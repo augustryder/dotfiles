@@ -22,11 +22,13 @@ opengh() {
 }
 
 tree() {
-    if [ -z "$1" ]; then
-        lsd --tree --depth 2
-        return
+    if [[ "$1" =~ ^[0-9]+$ ]]; then
+        local depth="$1"
+        shift
+        lsd --tree --depth "$depth" "$@"
+    else
+        lsd --tree --depth 2 "$@"
     fi
-    lsd --tree --depth "$1"
 }
 
 alias ls=lsd
