@@ -1,4 +1,4 @@
-eval "$(starship init zsh)"
+eval "$(starship init -- zsh)"
 
 # Load Homebrew-installed zsh-autosuggestions
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -6,6 +6,17 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source <(fzf --zsh)
+
+# Customize zsh-syntax-highlighting colors
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
+ZSH_HIGHLIGHT_STYLES[arg0]='fg=blue,bold'
+ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=blue,underline'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=blue,underline'
+ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=blue,underline'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=blue,bold'
+ZSH_HIGHLIGHT_STYLES[function]='fg=blue,bold'
+ZSH_HIGHLIGHT_STYLES[command]='fg=blue,bold'
+ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=blue,bold'
 
 # Command to open the GitHub repository in the default web browser
 opengh() {
@@ -31,6 +42,15 @@ tree() {
     fi
 }
 
+export MANPAGER='nvim +Man!'
+
 alias ls=lsd
 
-fastfetch
+# swag points
+fastfetch  
+
+# Auto-attach to a tmux session or create a new one
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    tmux attach -t default || tmux new -s default
+fi
+
