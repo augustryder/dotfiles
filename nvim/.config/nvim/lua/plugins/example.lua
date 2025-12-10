@@ -2,6 +2,7 @@
 -- stylua: ignore
 
 if true then return {
+
   {
     "vague-theme/vague.nvim",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
@@ -14,6 +15,27 @@ if true then return {
       vim.cmd("colorscheme vague")
     end
   },
+
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        basedpyright = {
+          settings = {
+            basedpyright = {
+              analysis = {
+                typeCheckingMode = "basic",
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "openFilesOnly",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+
 } end
 
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
