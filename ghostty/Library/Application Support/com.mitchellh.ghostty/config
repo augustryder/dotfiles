@@ -46,7 +46,8 @@
 # Located at ~/.config/ghostty/config.toml
 
 # Font settings
-font-family = "DepartureMono Nerd Font"
+# font-family = "DepartureMono Nerd Font"
+font-family = "Mono"
 font-size = 14
 
 # Theme
