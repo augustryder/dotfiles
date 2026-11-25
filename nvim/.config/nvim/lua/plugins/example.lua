@@ -20,6 +20,11 @@ if true then return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        clangd = {
+          init_options = {
+            fallbackFlags = { "-std=c++23" },
+          },
+        },
         basedpyright = {
           settings = {
             basedpyright = {
